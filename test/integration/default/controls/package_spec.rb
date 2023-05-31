@@ -3,7 +3,7 @@
 control 'InfluxDB package' do
   title 'should be installed'
 
-  describe package('influxdb') do
+  describe package('influxdb2') do
     it { should be_installed }
   end
 end

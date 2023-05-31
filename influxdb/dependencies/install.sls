@@ -5,11 +5,13 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as influxdb with context %}
 
-include:
+
 {% if influxdb.pkg.dependencies is defined %}
-  - .dependencies
+influxdb/dependencies/install:
+  pkg.installed:
+    - pkgs:
+    {% for package in influxdb.pkg.dependencies %}
+      - {{ package }}
+    {% endfor %}
 {% endif %}
-  - .repo
-  - .package
-  - .config
-  - .service
+

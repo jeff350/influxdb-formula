@@ -4,12 +4,7 @@
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as influxdb with context %}
-
-include:
-{% if influxdb.pkg.dependencies is defined %}
-  - .dependencies
-{% endif %}
-  - .repo
-  - .package
-  - .config
-  - .service
+influxdb-service-clean-service-dead:
+  service.dead:
+    - name: {{ influxdb.service.name }}
+    - enable: False

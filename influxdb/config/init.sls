@@ -6,10 +6,8 @@
 {%- from tplroot ~ "/map.jinja" import mapdata as influxdb with context %}
 
 include:
-{% if influxdb.pkg.dependencies is defined %}
-  - .dependencies
+  - .file
+{% if influxdb.ssl is defined %}
+  - .ssl
 {% endif %}
-  - .repo
-  - .package
-  - .config
-  - .service
+

@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set default values.
+---
+values:
+  config: /etc/influxdb/config.toml
+  system_user: influxdb
+  system_group: influxdb
+  toml_module: toml
+  pip_pkg: python3-pip
+  pkg:
+    name: influxdb2
+  service:
+    name: influxdb
+  conf:
+    bolt-path: /var/lib/influxdb/influxd.bolt
+    engine-path: /var/lib/influxdb/engine
+...

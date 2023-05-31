@@ -3,13 +3,10 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- from tplroot ~ "/map.jinja" import mapdata as influxdb with context %}
 
-include:
-{% if influxdb.pkg.dependencies is defined %}
-  - .dependencies
-{% endif %}
-  - .repo
-  - .package
-  - .config
-  - .service
+{%- from tplroot ~ "/map.jinja" import mapdata as influxdb with context %}
+{%- from tplroot ~ "/macros.jinja" import format_kwargs with context %}
+
+influxdb-repo-clean-remove-repo:
+  pkgrepo.absent:
+    {{- format_kwargs(influxdb.repo) }}
