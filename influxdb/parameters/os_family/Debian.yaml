@@ -20,5 +20,6 @@ values:
   pkg:
     dependencies:
       - gpg
+      - python3-toml
 
 ...

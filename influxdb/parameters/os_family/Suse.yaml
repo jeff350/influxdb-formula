@@ -19,4 +19,7 @@ values:
     gpgautoimport: true
     # yamllint disable-line rule:line-length
     baseurl: https://download.opensuse.org/repositories/Cloud:/OpenStack:/Master/openSUSE_Leap_$releasever
+  pkg:
+    dependencies:
+      - python3-toml
 ...
