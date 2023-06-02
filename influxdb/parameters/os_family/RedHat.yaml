@@ -19,7 +19,4 @@ values:
     gpgcheck: 1
     baseurl: https://repos.influxdata.com/rhel/$releasever/$basearch/stable/
     gpgkey: https://repos.influxdata.com/influxdata-archive.key
-  pkg:
-    dependencies:
-      - python3-toml
 ...
