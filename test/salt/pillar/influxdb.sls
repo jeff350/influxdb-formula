@@ -2,5 +2,4 @@
 ---
 influxdb:
   conf:
-    logging:
-      level: debug
+    log-level: info
